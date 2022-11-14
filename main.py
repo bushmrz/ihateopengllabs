@@ -1,10 +1,8 @@
-#
 from OpenGL.GL import *
 from OpenGL.GLUT import *
-from OpenGL.GLU import *
+#from OpenGL.GLU import *
 
-w = 500
-h = 500
+
 def square():
     glBegin(GL_QUADS)
     glVertex2f(30, 140)

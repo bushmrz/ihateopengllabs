@@ -153,6 +153,10 @@ def drawLegs():
 
 
 def drawEyes():
+
+
+    ##########################
+
     glPushMatrix()
     glTranslatef(0, 0.1, 0)
     glRotatef(xrot, 1.0, 0.0, 0.0)
@@ -200,30 +204,10 @@ def drawMounth():
     glTranslatef(0, 0.1, 0)
     glRotatef(xrot, 1.0, 0.0, 0.0)
     glRotatef(yrot, 0.0, 1.0, 0.0)
-    glMaterialfv(GL_FRONT, GL_DIFFUSE, skincolor)
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, (1, 0, 0.3, 1))
     quadratic = gluNewQuadric()
-    glTranslatef(0.05, 0.1, -0.9)
-    gluSphere(quadratic, 0.125, 100, 100)
-    glPopMatrix()
-
-    glPushMatrix()
-    glTranslatef(0, 0.1, 0)
-    glRotatef(xrot, 1.0, 0.0, 0.0)
-    glRotatef(yrot, 0.0, 1.0, 0.0)
-    glMaterialfv(GL_FRONT, GL_DIFFUSE, skincolor)
-    quadratic = gluNewQuadric()
-    glTranslatef(-0.05, 0.1, -0.9)
-    gluSphere(quadratic, 0.125, 100, 100)
-    glPopMatrix()
-
-    glPushMatrix()
-    glTranslatef(0, 0.1, 0)
-    glRotatef(xrot, 1.0, 0.0, 0.0)
-    glRotatef(yrot, 0.0, 1.0, 0.0)
-    glMaterialfv(GL_FRONT, GL_DIFFUSE, (0, 0, 0, 1))
-    quadratic = gluNewQuadric()
-    glTranslatef(0, 0.05, -0.9)
-    gluSphere(quadratic, 0.125, 100, 100)
+    glTranslatef(0, -0.6, 0.6)
+    gluSphere(quadratic, 0.05, 100, 100)
     glPopMatrix()
 
 
@@ -243,7 +227,7 @@ def init():
 
     glClearColor(0.5, 0.5, 0.5, 1.0)  # Серый цвет для первоначальной закраски
     gluOrtho2D(-1.5, 1.5, -1.5, 1.5)  # Определяем границы рисования по горизонтали и вертикали
-    glRotatef(-90, 1.0, 0.0, 0.0)  # Сместимся по оси Х на 90 градусов
+    glRotatef(-90, 10.0, 0.0, 0.0)  # Сместимся по оси Х на 90 градусов
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambient)  # Определяем текущую модель освещения
     glEnable(GL_LIGHTING)  # Включаем освещение
     glEnable(GL_LIGHT0)  # Включаем один источник света
@@ -287,8 +271,7 @@ def draw():
     drawHands()
     drawBodyandFace()
     drawEyes()
-    # drawMounth()
-    # drawTail()
+    drawMounth()
     drawLegs()
     drawEars()
     glutSwapBuffers()  # Выводим все нарисованное в памяти на экран
